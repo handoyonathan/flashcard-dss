@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:image_picker/image_picker.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class User {
@@ -30,9 +30,7 @@ class User {
   }
 }
 
-
 final dio = Dio();
-
 
 Future<bool> storeAccount(
     String email, String password, String confirmPassword) async {
@@ -66,9 +64,7 @@ Future<bool> storeAccount(
       // print(user.password);
       // print(user.token);
       return true;
-
-    } else {
-    }
+    } else {}
   } catch (e) {
     print('Error: $e');
   }
@@ -106,7 +102,6 @@ Future<String?> verifyCredentials(String email, String password) async {
       print(user.id);
       print(user.token);
       return user.token;
-
     } else {
       print('hm');
     }
@@ -125,10 +120,10 @@ Future<File> getImage() async {
   throw Exception('Gagal mengambil gambar');
 }
 
-
 Future<File> getFile() async {
   print('audio awal');
-  final result = await FilePicker.platform.pickFiles(type: FileType.custom, allowedExtensions: ['mp3', 'wav']);
+  final result = await FilePicker.platform
+      .pickFiles(type: FileType.custom, allowedExtensions: ['mp3', 'wav']);
   print('audio bisa kesini');
   if (result != null) {
     final filePath = result.files.single.path!;
@@ -136,4 +131,76 @@ Future<File> getFile() async {
     return File(filePath);
   }
   throw Exception('Gagal mengambil file');
+}
+
+Future<String?> forgotPassword(String email) async {
+  try {
+    final response = await dio.post(
+      '${api}forgotpassword',
+      data: {
+        'email': email,
+      },
+    );
+
+    print('ini codenya' + response.statusCode.toString());
+    final responseData = response.data;
+    print(responseData);
+
+    // final user = User.fromJson(responseData);
+    // print(email);
+    //   print(password);
+    //   print(user.email);
+    //   print(user.password);
+
+    if (response.statusCode == 200) {
+      print('masuk ga');
+      final user = User.fromJson(responseData);
+      // print('masuk ga');
+
+      print(email);
+      return user.token;
+    } else {
+      print('hm');
+    }
+  } catch (e) {
+    print('Error: $e');
+  }
+  return null;
+}
+
+Future<String?> newPassword(String token, String pw, String confirmPw) async {
+  try {
+    final response = await dio.post(
+      '${api}newpassword',
+      data: {
+        "tokenEmail": token,
+        "newPassword": pw,
+        "confirmNewPassword": confirmPw
+      },
+    );
+
+    print('ini codenya' + response.statusCode.toString());
+    final responseData = response.data;
+    print(responseData);
+
+    // final user = User.fromJson(responseData);
+    // print(email);
+    //   print(password);
+    //   print(user.email);
+    //   print(user.password);
+
+    if (response.statusCode == 200) {
+      print('masuk ga');
+      final user = User.fromJson(responseData);
+      // print('masuk ga');
+
+      // print(email);
+      return user.token;
+    } else {
+      print('hm');
+    }
+  } catch (e) {
+    print('Error: $e');
+  }
+  return null;
 }

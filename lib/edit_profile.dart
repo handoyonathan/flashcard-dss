@@ -1,3 +1,4 @@
+import 'package:flashcard/model/user_model.dart';
 import 'package:flashcard/widget/button.dart';
 import 'package:flashcard/widget/color.dart';
 import 'package:flashcard/widget/text.dart';
@@ -5,19 +6,20 @@ import 'package:flashcard/widget/textField.dart';
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
-  const EditProfile({super.key});
+  final String? token;
+  const EditProfile({super.key, required this.token});
 
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
 
 class _EditProfileState extends State<EditProfile> {
-  TextEditingController _controller = TextEditingController();
+  // TextEditingController _controller = TextEditingController();
   TextEditingController _controller2 = TextEditingController();
   TextEditingController _controller3 = TextEditingController();
   TextEditingController _controller4 = TextEditingController();
   bool isMatched = true;
-  bool isName = true;
+  // bool isName = true;
   bool isEmail = true;
   bool isPw = true;
   bool isConfirm = true;
@@ -47,16 +49,16 @@ class _EditProfileState extends State<EditProfile> {
           child: Column(
             children: [
               // SizedBox(height: 20,),
-              CustomTextField(
-                controller: _controller,
-                label: 'Name',
-                hintText: 'Enter your name',
-                isIcon: false,
-                errorText: isName ? null : 'Name must not be empty',
-              ),
-              SizedBox(
-                height: 20,
-              ),
+              // CustomTextField(
+              //   controller: _controller,
+              //   label: 'Name',
+              //   hintText: 'Enter your name',
+              //   isIcon: false,
+              //   errorText: isName ? null : 'Name must not be empty',
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
               CustomTextField(
                 controller: _controller2,
                 label: 'Email',
@@ -85,17 +87,17 @@ class _EditProfileState extends State<EditProfile> {
                 errorText: isConfirm ? !isMatched ? 'Password does not match' : null : 'Confirm password must not be empty',
               ),
               Spacer(),
-              CustomButton(onPressed: () {
-                if (_controller.text.isEmpty){
-                  setState(() {
-                    isName = false;
-                  });
-                }
-                else{
-                  setState(() {
-                    isName = true;
-                  });
-                }
+              CustomButton(onPressed: () async {
+                // if (_controller.text.isEmpty){
+                //   setState(() {
+                //     isName = false;
+                //   });
+                // }
+                // else{
+                //   setState(() {
+                //     isName = true;
+                //   });
+                // }
                 if (_controller2.text.isEmpty){
                   setState(() {
                     isEmail = false;
@@ -136,6 +138,10 @@ class _EditProfileState extends State<EditProfile> {
                   setState(() {
                     isMatched = false;
                   });
+                }
+
+                if (isMatched && isEmail && isPw && isConfirm){
+                  await newPassword(widget.token!, _controller3.text, _controller4.text);
                 }
 
               }, text: 'Save')

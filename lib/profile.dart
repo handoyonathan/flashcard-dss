@@ -1,22 +1,20 @@
 import 'package:flashcard/edit_profile.dart';
 import 'package:flashcard/signin.dart';
-import 'package:flashcard/signup.dart';
-import 'package:flashcard/widget/button.dart';
 import 'package:flashcard/widget/card_container.dart';
 import 'package:flashcard/widget/color.dart';
 import 'package:flashcard/widget/text.dart';
-import 'package:flashcard/widget/textField.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  final String? token;
+  const Profile({super.key, required this.token});
 
   @override
   State<Profile> createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
-  TextEditingController _controller = TextEditingController();
+  // TextEditingController _controller = TextEditingController();
   // TextEditingController _controller2 = TextEditingController();
   // TextEditingController _controller3 = TextEditingController();
 
@@ -54,7 +52,7 @@ class _ProfileState extends State<Profile> {
                 isAsset: true,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return EditProfile();
+                    return EditProfile(token: widget.token);
                   }));
                 },
               ),

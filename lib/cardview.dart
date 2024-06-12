@@ -1,9 +1,7 @@
-import 'dart:ffi';
 import 'dart:math';
 import 'package:flashcard/model/card_model.dart';
 import 'package:flashcard/widget/color.dart';
 import 'package:flashcard/widget/text.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:loop_page_view/loop_page_view.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -65,7 +63,7 @@ class _CardViewState extends State<CardView> {
         }
       });
       await _audioPlayer.play(UrlSource(audioUrl));
-      // await _audioPlayer.onPlayerComplete.first;
+      await _audioPlayer.onPlayerComplete.first;
       setState(() {
         isPlaying = false;
         if (index != null) {

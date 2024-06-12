@@ -1,14 +1,5 @@
-import 'package:flashcard/cardview.dart';
-import 'package:flashcard/category_deck.dart';
-import 'package:flashcard/edit_profile.dart';
-import 'package:flashcard/email_sent.dart';
-import 'package:flashcard/forgot_password.dart';
-import 'package:flashcard/home.dart';
 import 'package:flashcard/onboard.dart';
-import 'package:flashcard/profile.dart';
-import 'package:flashcard/pw_success.dart';
 import 'package:flashcard/signin.dart';
-import 'package:flashcard/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // color: bgColor,
-      // home: OnboardingScreen(),
-      home: SignIn(),
+      home: OnboardingScreen(),
+      // home: SignIn(),
       // home: CardSlide(),
       // home: HomePage(token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYjFhYTRiMy05NmIzLTRiM2MtOTc5ZS1kZmViYWUwNmUyYWUiLCJpYXQiOjE3MTQ3MjIwMjAsImV4cCI6MTcxNDgwODQyMH0.P6QG6ubREkWiieJPO5XaigX4e2uHgt-5ljc4dUu1WNU'),
       // home: SignUp(),

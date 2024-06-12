@@ -12,7 +12,7 @@ import 'package:flashcard/model/deck_model.dart';
 import 'package:flashcard/model/user_model.dart';
 import 'package:flutter/material.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class FormData extends StatefulWidget {
@@ -701,7 +701,6 @@ class _FormDataState extends State<FormData> {
                                                 widget.id!);
                                   }
                                   if (id != null && widget.isEdit == null) {
-                                    // print(id);
                                     widget.detail == 'category'
                                         ? Navigator.push(context,
                                             MaterialPageRoute(

@@ -8,7 +8,7 @@ import 'package:flashcard/model/deck_model.dart';
 import 'package:flashcard/form_data.dart';
 import 'package:flutter/material.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class DetailData extends StatefulWidget {

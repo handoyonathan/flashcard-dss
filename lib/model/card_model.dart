@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class CardModel {

@@ -7,7 +7,7 @@ import 'package:flashcard/widget/color.dart';
 import 'package:flashcard/widget/text.dart';
 import 'package:flutter/material.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class CategoryDeck extends StatefulWidget {
@@ -74,7 +74,7 @@ class _CategoryDeckState extends State<CategoryDeck> {
             onTap: () {
               Navigator.pop(context, true);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios_new_rounded,
               color: Colors.white,
             )),
@@ -96,7 +96,7 @@ class _CategoryDeckState extends State<CategoryDeck> {
               }
             },
             child: Container(
-              margin: EdgeInsets.only(left: 10, right: 35),
+              margin: const EdgeInsets.only(left: 10, right: 35),
               // color: Colors.amber,
               child: Row(
                 children: [
@@ -106,10 +106,10 @@ class _CategoryDeckState extends State<CategoryDeck> {
                     width: 16,
                     height: 16,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
-                  Text(
+                  const Text(
                     'Edit',
                     style: TextStyle(
                         color: AppColors.white,
@@ -125,7 +125,7 @@ class _CategoryDeckState extends State<CategoryDeck> {
       backgroundColor: AppColors.bg,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             TextField(
@@ -151,7 +151,7 @@ class _CategoryDeckState extends State<CategoryDeck> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -190,7 +190,7 @@ class _CategoryDeckState extends State<CategoryDeck> {
                                 }
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             )
                           ],

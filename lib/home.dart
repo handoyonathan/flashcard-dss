@@ -1,5 +1,4 @@
 import 'package:flashcard/category_deck.dart';
-import 'package:flashcard/detail_data.dart';
 import 'package:flashcard/form_data.dart';
 import 'package:flashcard/model/category_model.dart';
 import 'package:flashcard/profile.dart';
@@ -10,7 +9,7 @@ import 'package:flashcard/widget/text.dart';
 import 'package:flashcard/model/deck_model.dart';
 import 'package:flutter/material.dart';
 
-String api = 'https://c2cb-112-215-224-194.ngrok-free.app/';
+String api = 'https://2aac-112-215-226-99.ngrok-free.app/';
 // String api = 'http://localhost:5050/';
 
 class HomePage extends StatefulWidget {
@@ -145,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                     } else {
                       final result = await Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return Profile();
+                        return Profile(token: widget.token,);
                       }));
                       print(result);
                       if (result == true) {
